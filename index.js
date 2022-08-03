@@ -1,7 +1,8 @@
 let triangleBtn = document.querySelector(".first-btn");
 let pyramidBtn = document.querySelector(".second-btn");
 let reversePyramidBtn = document.querySelector(".third-btn");
-let clearBtn = document.querySelector(".fourth-btn");
+let rhombus = document.querySelector(".fourth-btn");
+let clearBtn = document.querySelector(".fifth-btn");
 const output = document.getElementById("output");
 
 triangleBtn.addEventListener("click", function () {
@@ -19,29 +20,34 @@ triangleBtn.addEventListener("click", function () {
 
 pyramidBtn.addEventListener("click", function () {
 	let n = 6;
-	let pyramid = "<center>";
-	for (let i = 1; i <= n; i++) {
+	let pyramid = "";
+	for (let i = 0; i <= n; i++) {
+		for (let j = 1; j <= n - i; j++) {
+			pyramid += "&nbsp";
+		}
 		for (let k = 0; k <= 1 * i - 1; k++) {
-			pyramid += "*";
+			pyramid += "* ";
 		}
 		pyramid += "<br/>";
 	}
-	pyramid += "</center>";
+	// pyramid += "&nbsp";
 	console.log(pyramid);
 	output.innerHTML = pyramid;
 });
 
 reversePyramidBtn.addEventListener("click", function () {
 	let n = 6;
-	let revPyramid = "<center>";
+	let revPyramid = "";
 
 	for (let i = 0; i < n; i++) {
+		for (let j = 0; j < i; j++) {
+			revPyramid += "&nbsp";
+		}
 		for (let k = 0; k <= 1 * (n - i) - 1; k++) {
-			revPyramid += "*";
+			revPyramid += "* ";
 		}
 		revPyramid += "<br/>";
 	}
-	revPyramid += "</center>";
 	console.log(revPyramid);
 	output.innerHTML = revPyramid;
 });
